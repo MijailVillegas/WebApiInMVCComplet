@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BC_AllphaMusicModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CompraT">
+          <Key>
+            <PropertyRef Name="sell_id" />
+          </Key>
+          <Property Name="sell_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fkalbum_id" Type="int" Nullable="false" />
+          <Property Name="fkuser_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LogsT">
+          <Key>
+            <PropertyRef Name="id_log" />
+          </Key>
+          <Property Name="id_log" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="log_date" Type="datetime" Nullable="false" />
+          <Property Name="fkuser_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TbAlbum">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="artis" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="label" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="released" Type="datetime" Nullable="false" />
+          <Property Name="price" Type="float" Nullable="false" />
+          <Property Name="category" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TbUser">
+          <Key>
+            <PropertyRef Name="usr_id" />
+          </Key>
+          <Property Name="usr_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usr_nom" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="priv" Type="int" Nullable="false" />
+          <Property Name="activo" Type="bit" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TrackT">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="album_id" Type="int" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="track_num" Type="int" Nullable="false" />
+          <Property Name="duration" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="BC_AllphaMusicModelStoreContainer">
+          <EntitySet Name="CompraT" EntityType="Self.CompraT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LogsT" EntityType="Self.LogsT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TbAlbum" EntityType="Self.TbAlbum" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TbUser" EntityType="Self.TbUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TrackT" EntityType="Self.TrackT" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BC_AllphaMusicModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CompraT">
+          <Key>
+            <PropertyRef Name="sell_id" />
+          </Key>
+          <Property Name="sell_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fkalbum_id" Type="Int32" Nullable="false" />
+          <Property Name="fkuser_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LogsT">
+          <Key>
+            <PropertyRef Name="id_log" />
+          </Key>
+          <Property Name="id_log" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="log_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fkuser_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TbAlbum">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="artis" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="label" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="released" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="price" Type="Double" Nullable="false" />
+          <Property Name="category" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TbUser">
+          <Key>
+            <PropertyRef Name="usr_id" />
+          </Key>
+          <Property Name="usr_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usr_nom" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="priv" Type="Int32" Nullable="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="TrackT">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="album_id" Type="Int32" Nullable="false" />
+          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="track_num" Type="Int32" Nullable="false" />
+          <Property Name="duration" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="DBAllphaModel" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CompraT" EntityType="Self.CompraT" />
+          <EntitySet Name="LogsT" EntityType="Self.LogsT" />
+          <EntitySet Name="TbAlbum" EntityType="Self.TbAlbum" />
+          <EntitySet Name="TbUser" EntityType="Self.TbUser" />
+          <EntitySet Name="TrackT" EntityType="Self.TrackT" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BC_AllphaMusicModelStoreContainer" CdmEntityContainer="DBAllphaModel">
+          <EntitySetMapping Name="CompraT">
+            <EntityTypeMapping TypeName="BC_AllphaMusicModel.CompraT">
+              <MappingFragment StoreEntitySet="CompraT">
+                <ScalarProperty Name="sell_id" ColumnName="sell_id" />
+                <ScalarProperty Name="fkalbum_id" ColumnName="fkalbum_id" />
+                <ScalarProperty Name="fkuser_id" ColumnName="fkuser_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LogsT">
+            <EntityTypeMapping TypeName="BC_AllphaMusicModel.LogsT">
+              <MappingFragment StoreEntitySet="LogsT">
+                <ScalarProperty Name="id_log" ColumnName="id_log" />
+                <ScalarProperty Name="log_date" ColumnName="log_date" />
+                <ScalarProperty Name="fkuser_id" ColumnName="fkuser_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TbAlbum">
+            <EntityTypeMapping TypeName="BC_AllphaMusicModel.TbAlbum">
+              <MappingFragment StoreEntitySet="TbAlbum">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="artis" ColumnName="artis" />
+                <ScalarProperty Name="label" ColumnName="label" />
+                <ScalarProperty Name="released" ColumnName="released" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="category" ColumnName="category" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TbUser">
+            <EntityTypeMapping TypeName="BC_AllphaMusicModel.TbUser">
+              <MappingFragment StoreEntitySet="TbUser">
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="usr_id" ColumnName="usr_id" />
+                <ScalarProperty Name="usr_nom" ColumnName="usr_nom" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="priv" ColumnName="priv" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TrackT">
+            <EntityTypeMapping TypeName="BC_AllphaMusicModel.TrackT">
+              <MappingFragment StoreEntitySet="TrackT">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="album_id" ColumnName="album_id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="track_num" ColumnName="track_num" />
+                <ScalarProperty Name="duration" ColumnName="duration" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,88 @@
+﻿@model Mvc.Models.RegUserModel
+
+@{
+    ViewBag.Title = "Regsiter";
+}
+
+<h2>Registro</h2>
+
+
+@using (Html.BeginForm("AddOrEdit", "RegUserModel", FormMethod.Post)) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>RegUserModel</h4>
+    <hr />
+    @Html.ValidationSummary(true)
+    <div class="form-group">
+        @Html.LabelFor(model => model.usr_id, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.usr_id)
+            @Html.ValidationMessageFor(model => model.usr_id)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.usr_nom, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.usr_nom)
+            @Html.ValidationMessageFor(model => model.usr_nom)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.email)
+            @Html.ValidationMessageFor(model => model.email)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.priv, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.priv)
+            @Html.ValidationMessageFor(model => model.priv)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.activo, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.activo)
+            @Html.ValidationMessageFor(model => model.activo)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.password)
+            @Html.ValidationMessageFor(model => model.password)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Confirmpassword, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Confirmpassword)
+            @Html.ValidationMessageFor(model => model.Confirmpassword)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Registrar" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Cancelar", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
